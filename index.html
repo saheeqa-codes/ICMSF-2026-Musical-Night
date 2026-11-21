@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICMSF-2026 Musical Night</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #300b18;
+  color: white;
+  text-align: center;
+}
+header {
+  background: #570e25;
+  padding: 35px 15px;
+  border-bottom: 3px solid gold;
+}
+h1 { color: gold; font-size: 32px; }
+h2 { color: #ffd76a; }
+.card {
+  background: #501426;
+  margin: 25px auto;
+  padding: 25px;
+  max-width: 420px;
+  border: 1px solid gold;
+  border-radius: 15px;
+}
+button {
+  background: gold;
+  color: #300b18;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+input, select {
+  width: 90%;
+  padding: 12px;
+  margin: 8px;
+  border-radius: 6px;
+  border: none;
+}
+footer { padding: 20px; color: gold; }
+</style>
+</head>
+<body>
+<header>
+<h1>ICMSF-2026</h1>
+<h2> MUSICAL NIGHT </h2>
+<p>A Night Full of Music, Memories & Magic</p>
+</header>
+
+<div class="card">
+<h2>Event Information</h2>
+<p>Event: Musical Night</p>
+<p>Department: Mathematics & Other Departments</p>
+<p>Session: 2026</p>
+</div>
+
+<div class="card">
+<h2>Book Your Ticket</h2>
+<input id="name" placeholder="Enter Your Full Name">
+<input id="roll" placeholder="Enter Roll Number">
+<select id="department">
+<option value="">Select Department</option>
+<option>Mathematics</option>
+<option>Other Department</option>
+</select>
+<p id="price">Select department for ticket price</p>
+<button onclick="book()">Book Ticket</button>
+<p id="result"></p>
+</div>
+
+<footer>ICMSF-2026 | Musical Night</footer>
+
+<script>
+document.getElementById("department").onchange = function() {
+  document.getElementById("price").innerText =
+  this.value === "Mathematics" ?
+  "Ticket Price: Rs. 200" :
+  this.value ? "Ticket Price: Rs. 300" : "Select department";
+};
+
+function book() {
+  let name = document.getElementById("name").value.trim();
+  let roll = document.getElementById("roll").value.trim();
+  let dept = document.getElementById("department").value;
+  if (!name || !roll || !dept) {
+    alert("Please fill all fields");
+    return;
+  }
+  document.getElementById("result").innerText =
+  "Registration details entered for " + name +
+  ". Please proceed to official ticket verification.";
+}
+</script>
+</body>
+</html>
